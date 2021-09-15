@@ -24,4 +24,14 @@ if (file_exists($local_settings)) {
   include $local_settings;
 }
 
-$settings['hash_salt'] = 'pepperpepperpepperpepperpepperpepperpepperpepperpepper';
+$settings['hash_salt'] = 'QvJ1tDguhP1arJPiWtar9I9cxYRgAoeu4cJz4bDrWxwwihZveS_coT2qLr1eINifbEwsNOz1cg';
+$databases['default']['default'] = array (
+  'database' => 'tableau_takehome',
+  'username' => 'root',
+  'password' => 'root',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
