@@ -24,9 +24,9 @@ if (file_exists($local_settings)) {
   include $local_settings;
 }
 
-$settings['hash_salt'] = 'QvJ1tDguhP1arJPiWtar9I9cxYRgAoeu4cJz4bDrWxwwihZveS_coT2qLr1eINifbEwsNOz1cg';
+$settings['hash_salt'] = 'zHk1bnuGKBlff0IzMuBVLqlGd_01RUf1yy3B-ra2VlYhRglwz9PO4HdLN7LHW_k5zStAnizGZA';
 $databases['default']['default'] = array (
-  'database' => 'tableau_takehome',
+  'database' => 'takehome_db',
   'username' => 'root',
   'password' => 'root',
   'prefix' => '',

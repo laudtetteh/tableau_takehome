@@ -1,7 +1,0 @@
-button.content:
-  path: '#'
-  defaults:
-    _controller: '\Drupal\button\Controller\ButtonController::content'
-    _title: 'Custom Button Title'
-  requirements:
-    _permission: 'access content'
