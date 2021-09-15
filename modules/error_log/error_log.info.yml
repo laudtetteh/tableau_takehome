@@ -1,0 +1,11 @@
+name: Error Log
+description: Sends log messages to the PHP error log.
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9
+configure: system.logging_settings
+
+# Information added by Drupal.org packaging script on 2021-03-07
+version: '8.x-1.5'
+project: 'error_log'
+datestamp: 1615098746

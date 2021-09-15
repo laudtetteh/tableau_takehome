@@ -1,0 +1,6 @@
+name: Custom Button Module
+description: Creates a custom button
+package: Custom
+type: module
+version: 1.0
+core: 8.x
