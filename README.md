@@ -35,7 +35,7 @@ There were a couple of things I didn't have time to properly troubleshoot:
 
 ### To-do
 
-A few additional tweaks I would put in if I had time:
+A few additional tweaks I would put in if I had the chance:
 
  1. Install the new "accessibility" module programmatically
  2. Place the new "Laud's Button" block in the sidebar programmatically
