@@ -11,16 +11,24 @@ CONTENTS OF THIS FILE
 
 WHAT I'VE DONE
 ------------
-As I mentioned during our one-on-one, my Drupal knowledge is still mostly rudimentary. So for this assessment, I had to learn a few new things. Here's a summary of what I was able to do:
+
+Had to learn a few new things, as my Drupal knowledge is still mostly rudimentary!
+
+Here's a summary of what I was able to do:
+
  1. Create a custom module called "accessibility"
  2. Create a block where a form is submitted by a button that is handled by an instance of Drupal's `ajaxResponse`
  3. Create a controller to supply an internal API endpoint for the front end ajax form
+ 4. Make an HTTP GET request to a cloudfunctions resource which returns json
+ 5. Process the response and display rendered HTML under the form on the front end
 
 
 
 BUGS
 ------------
+
 There were a couple of things I didn't have time to properly troubleshoot:
+
  1. In the method '\Drupal\accessibility\Form\AccessibilityAjaxForm::getViolationCounts', I'm attempting to create an associative array of violations by category. Not sure why that piece of code keeps returning count '1' for all violations
  2. The first time you install the module and add the block to the sidebar (or just clear drupal caches), the ajax button works as expected. Once you refresh the page, it defaults to 'submitting', rather than the designated ajaxResponse call.
 
@@ -28,7 +36,9 @@ There were a couple of things I didn't have time to properly troubleshoot:
 
 TO-DO
 ------------
+
 There were a few things I wasn't able to get to, such as:
+
  1. Install the new "accessibility" module programmatically
  2. Place the new "Laud's Button" block in the sidebar programmatically
  3. Color code the violations list according to counts
@@ -37,6 +47,7 @@ There were a few things I wasn't able to get to, such as:
 
 NOTES
 ------------
-You probably already noticed this, but just to be safe...
+You probably already noticed these, but just to be safe...
+
  1. Please remember to set the value for `local_site_url` in settings.php
  2. Please log in and manually place the block "Laud's Button" inside the region "Sidebar first"
