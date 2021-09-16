@@ -1,16 +1,16 @@
 <?php
 /**
 @file
-Contains \Drupal\button\Controller\ButtonController.
+Contains \Drupal\accessibility\Controller\AccessibilityController.
 */
-namespace Drupal\button\Controller;
+namespace Drupal\accessibility\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
 /**
- * Laud's Custom Button Controller
+ * Laud's Custom Accessibility Controller
  */
-class ButtonController extends ControllerBase {
+class AccessibilityController extends ControllerBase {
 
   /**
    * Returns a render-able array for a test page.

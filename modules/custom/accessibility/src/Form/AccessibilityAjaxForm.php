@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\button\Form;
+namespace Drupal\accessibility\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\Ajax\HtmlCommand;
 /**
  * Our simple form class.
  */
-class ButtonAjaxForm extends FormBase {
+class AccessibilityAjaxForm extends FormBase {
 
   /**
    * {@inheritdoc}
@@ -57,7 +57,7 @@ class ButtonAjaxForm extends FormBase {
     $response->addCommand(
       new HtmlCommand(
         '.result_message',
-        '<div class="my_top_message">' . $this->t('The result is @result', ['@result' => ($form_state->getValue('number_1') + $form_state->getValue('number_2'))])
+        '<div class="my_top_message">' . $this->t('The result is @result...')
         )
     );
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\button\Plugin\Block;
+namespace Drupal\accessibility\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormInterface;
@@ -21,7 +21,7 @@ class ButtonBlock extends BlockBase {
    */
   public function build() {
     // Call the button form
-    $form = \Drupal::formBuilder()->getForm('Drupal\button\Form\ButtonAjaxForm');
+    $form = \Drupal::formBuilder()->getForm('Drupal\accessibility\Form\AccessibilityAjaxForm');
 
     return $form;
   }

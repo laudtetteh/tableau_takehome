@@ -1,0 +1,7 @@
+accessibility.content:
+  path: '/api/accessibility'
+  defaults:
+    _controller: '\Drupal\accessibility\Controller\AccessibilityController::content'
+    _title: 'Accessibility Analysis'
+  requirements:
+    _permission: 'access content'
