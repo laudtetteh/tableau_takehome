@@ -1,5 +1,5 @@
 
-CONTENTS OF THIS FILE
+###CONTENTS OF THIS FILE
 ---------------------
 
  * What I've done
@@ -9,7 +9,7 @@ CONTENTS OF THIS FILE
 
 
 
-WHAT I'VE DONE
+#WHAT I'VE DONE
 ------------
 
 Had to learn a few new things, as my Drupal knowledge is still mostly rudimentary!
