@@ -1,4 +1,4 @@
-# CONTENTS OF THIS FILE
+## CONTENTS OF THIS FILE
 ---------------------
 
  * What I've done
@@ -8,8 +8,7 @@
 
 
 
-## WHAT I'VE DONE
-------------
+### What I've done
 
 Had to learn a few new things, as my Drupal knowledge is still mostly rudimentary!
 
@@ -23,8 +22,7 @@ Here's a summary of what I was able to do:
 
 
 
-BUGS
-------------
+### Bugs
 
 There were a couple of things I didn't have time to properly troubleshoot:
 
@@ -33,8 +31,7 @@ There were a couple of things I didn't have time to properly troubleshoot:
 
 
 
-TO-DO
-------------
+### To-do
 
 A few additional tweaks I would put in if I had time:
 
@@ -44,8 +41,8 @@ A few additional tweaks I would put in if I had time:
 
 
 
-NOTES
-------------
+### Notes
+
 You probably already noticed these, but just to be safe...
 
  1. Please remember to set the value for `local_site_url` in settings.php
