@@ -24,9 +24,25 @@ class ButtonAjaxForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+
+    // $form['massage'] = [
+    //   '#type' => 'markup',
+    //   '#markup' => '<div class="result_message"></div>',
+    // ];
+
+    // $form['number_1'] = [
+    //   '#type' => 'textfield',
+    //   '#title' => $this->t('First number'),
+    // ];
+
+    // $form['number_2'] = [
+    //   '#type' => 'textfield',
+    //   '#title' => $this->t('Second number'),
+    // ];
+
     $form['actions'] = [
       '#type' => 'button',
-      '#value' => $this->t('Click Me Now!'),
+      '#value' => $this->t('Click Me!'),
       '#ajax' => [
         'callback' => '::setMessage',
       ]

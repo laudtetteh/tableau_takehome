@@ -1,16 +1,7 @@
-# button.content:
-#   path: '#'
-#   defaults:
-#     _controller: '\Drupal\button\Controller\ButtonController::content'
-#     _title: 'Custom Button Title'
-#   requirements:
-#     _permission: 'access content'
-
-button.button_ajax_form:
-  path: 'button-ajax-form'
+button.content:
+  path: '#'
   defaults:
-    _form: '\Drupal\button\Form\ButtonAjaxForm::buildForm'
-    _title: 'My Cool Button'
+    _controller: '\Drupal\button\Controller\ButtonController::content'
+    _title: 'Custom Button Title'
   requirements:
     _permission: 'access content'
-

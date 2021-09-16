@@ -3,6 +3,7 @@
 namespace Drupal\button\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Form\FormInterface;
 
 /**
  * Provides a 'Button' Block.
@@ -19,9 +20,10 @@ class ButtonBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    return [
-      '#markup' => $this->t('<a href="#" class="button">Click Me!</a>'),
-    ];
+    // Call the button form
+    $form = \Drupal::formBuilder()->getForm('Drupal\button\Form\ButtonAjaxForm');
+
+    return $form;
   }
 
 }
