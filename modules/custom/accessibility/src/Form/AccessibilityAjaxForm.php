@@ -32,7 +32,7 @@ class AccessibilityAjaxForm extends FormBase {
       '#value' => $this->t('Click Me!!'),
       '#ajax' => [
         'callback' => '::printResults',
-        'wrapper' => 'print-output', // This element is updated with this AJAX callback.
+        'wrapper' => 'print-output',
         'method' => 'replace',
         'effect' => 'fade',
         'progress' => [
@@ -54,23 +54,64 @@ class AccessibilityAjaxForm extends FormBase {
   * Prints the results per category
   */
   public function printResults(array &$form, FormStateInterface $form_state) {
-    $getResults = $this->getResults();
-    $resultsMessage = $getResults['timestamp'];
-    $markup = "<h1>$resultsMessage</h1>";
+    $violations = $this->getViolationCounts();
+    $html = '';
 
-    $output = "<div id='print-output'>$markup</div>";
+    if( !empty($violations) ) {
+      $html .= '<ul>';
+
+      foreach( $violations as $violation => $count ) {
+        $html .= "<li>$violation: $count</li>";
+      }
+
+      $html .= '</ul>';
+    }
+
+    $output = "<div id='print-output'>$html</div>";
 
     // Return the HTML markup we built above in a render array.
     return ['#markup' => $output];
   }
 
+  public function getViolationCounts() {
+    $nodeResults = $this->fetchNodeResults();
+    $violations = $nodeResults['violations'];
+    $counts = [];
+
+    foreach( $violations as $violation ) {
+
+      $category = $violation['id'];
+
+      if( isset($counts[$category]) ) {
+
+        $counts[$category]++;
+
+      } else {
+
+        $counts[$category] = 1;
+
+      }
+    }
+
+    return $counts;
+  }
+
   /**
-  * Gets the results per category
+  * Gets the results for current node
   */
-  public function getResults() {
+  public function fetchNodeResults() {
+
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $nid = 1;
+
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      // Get node id
+      $nid = $node->id();
+    }
+
     $site_url = Settings::get('local_site_url', 'http://localhost:8888/tableau_takehome');
-    $internal_api_endpoint = 'api/accessibility';
-    $request_url = $site_url . '/' . $internal_api_endpoint;
+    $internal_api_endpoint = "/api/accessibility/?nid=$nid";
+    $request_url = "$site_url$internal_api_endpoint";
 
     $curl = curl_init($request_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

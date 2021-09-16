@@ -18,9 +18,10 @@ class AccessibilityController extends ControllerBase {
   * Handles the get request for `/api/accessibility`
   */
   public function get( Request $request ) {
+    $nid = isset($_GET['nid']) ? $_GET['nid'] : 1;
 
     $cloudfunctions_url = 'https://us-central1-api-project-30183362591.cloudfunctions.net/axe-puppeteer-test';
-    $node_url = 'https://dev-tech-homework.pantheonsite.io/node/1';
+    $node_url = "https://dev-tech-homework.pantheonsite.io/node/$nid";
     $request_url = $cloudfunctions_url . '/?url=' . $node_url;
 
     $curl = curl_init($request_url);
@@ -38,7 +39,7 @@ class AccessibilityController extends ControllerBase {
 
     $response = json_decode($response, true);
 
-    return new JsonResponse( $response );
+    return new JsonResponse($response);
   }
 
 }
