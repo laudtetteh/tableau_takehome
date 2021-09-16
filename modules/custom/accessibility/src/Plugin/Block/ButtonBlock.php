@@ -19,14 +19,13 @@ use Drupal\Core\Form\FormInterface;
  */
 class ButtonBlock extends BlockBase {
 
-  /**
-   * {@inheritdoc}
-   */
-  public function build() {
-    // Call the button form
-    $form = \Drupal::formBuilder()->getForm('Drupal\accessibility\Form\AccessibilityAjaxForm');
+    /**
+    * {@inheritdoc}
+    */
+    public function build() {
+        // Call the button form
+        $form = \Drupal::formBuilder()->getForm('Drupal\accessibility\Form\AccessibilityAjaxForm');
 
-    return $form;
-  }
-
+        return $form;
+    }
 }
