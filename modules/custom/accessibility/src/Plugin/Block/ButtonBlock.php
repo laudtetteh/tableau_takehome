@@ -1,5 +1,8 @@
 <?php
-
+/**
+@file
+Contains \Drupal\accessibility\Plugin\Block;
+*/
 namespace Drupal\accessibility\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
@@ -9,9 +12,9 @@ use Drupal\Core\Form\FormInterface;
  * Provides a 'Button' Block.
  *
  * @Block(
- *   id = "button",
- *   admin_label = @Translation("Button"),
- *   category = @Translation("Button"),
+ *   id = "ajax_button",
+ *   admin_label = @Translation("Ajax Button"),
+ *   category = @Translation("Ajax Button"),
  * )
  */
 class ButtonBlock extends BlockBase {
