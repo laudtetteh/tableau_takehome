@@ -28,10 +28,24 @@ class AccessibilityAjaxForm extends FormBase {
 
     $form['actions'] = [
       '#type' => 'button',
-      '#value' => $this->t('Click Me!'),
+      '#value' => $this->t('Click Me!!'),
       '#ajax' => [
         'callback' => '::printResults',
-      ]
+        'wrapper' => 'print-output', // This element is updated with this AJAX callback.
+        'method' => 'replace',
+        'effect' => 'fade',
+        'progress' => [
+          'type' => 'throbber',
+          'message' => $this->t('Getting results...'),
+        ],
+      ],
+      '#prefix' => '<div id="accessibility-form-button">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['results'] = [
+      '#type' => 'markup',
+      '#markup' => '<div id="print-output"></div>',
     ];
 
     return $form;
@@ -41,23 +55,33 @@ class AccessibilityAjaxForm extends FormBase {
   * Prints the results per category
   */
   public function printResults(array &$form, FormStateInterface $form_state) {
-    $response = new AjaxResponse();
+    $markup = '';
+
     $getResults = $this->getResults();
 
-    $response->addCommand(
-      new HtmlCommand(
-        '.result_message',
-        '<div class="my_top_message">' . $this->t('The result is @result...: ' . $getResults['data']['message'])
-        )
-    );
+    $resultsMessage = $getResults['data']['message'];
+    $markup = "<h1>$resultsMessage</h1>";
 
-    return $response;
+    $output = "<div id='print-output'>$markup</div>";
+
+    // Return the HTML markup we built above in a render array.
+    return ['#markup' => $output];
   }
 
-  public function getResults() {
-    $url = 'http://localhost:8888/tableau_takehome/api/accessibility';
 
-    return json_decode($url);
+  public function getResults() {
+    $request_url = 'http://localhost:8888/tableau_takehome/api/accessibility';
+    $curl = curl_init($request_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, [
+      'Content-Type: application/json'
+    ]);
+    $response = curl_exec($curl);
+    curl_close($curl);
+
+    $payload = json_decode($response, true);
+
+    return $payload;
   }
 
   /**
