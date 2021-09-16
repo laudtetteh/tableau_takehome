@@ -24,4 +24,17 @@ if (file_exists($local_settings)) {
   include $local_settings;
 }
 
-$settings['hash_salt'] = 'pepperpepperpepperpepperpepperpepperpepperpepperpepper';
+$settings['hash_salt'] = 'zHk1bnuGKBlff0IzMuBVLqlGd_01RUf1yy3B-ra2VlYhRglwz9PO4HdLN7LHW_k5zStAnizGZA';
+$databases['default']['default'] = array (
+  'database' => 'takehome_db',
+  'username' => 'root',
+  'password' => 'root',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+// Please set your local site url here
+$settings['local_site_url'] = 'http://localhost:8888/tableau_takehome';
+
