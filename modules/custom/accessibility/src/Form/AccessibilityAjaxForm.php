@@ -59,13 +59,17 @@ class AccessibilityAjaxForm extends FormBase {
         $ajax_response = new AjaxResponse();
         // Get violation counts
         $violations = $this->getViolationCounts();
+        // Start html string
         $html = '';
         // If violations exist, then build an html list
         if( !empty($violations) ) {
             $html .= '<ul>';
 
             foreach( $violations as $violation => $count ) {
-                $html .= "<li>$violation: $count</li>";
+                // Count is good if less than or equal to 2, bad if more
+                $color = count($count) <= 2 ? 'green' : 'red';
+                // Color code list items by count
+                $html .= "<li style='color:" . $color . "'>$violation: $count</li>";
             }
 
             $html .= '</ul>';
@@ -86,7 +90,8 @@ class AccessibilityAjaxForm extends FormBase {
         $counts = [];
         // Loop over violations array
         foreach( $violations as $violation ) {
-        // Set the violation id as category
+            // Set the violation id as category
+            // $category = str_replace('-', '_', $violation['id']);
             $category = $violation['id'];
 
             if( isset($counts[$category]) ) {
