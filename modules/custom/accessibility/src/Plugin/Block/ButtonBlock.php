@@ -12,9 +12,9 @@ use Drupal\Core\Form\FormInterface;
  * Provides a 'Button' Block.
  *
  * @Block(
- *   id = "ajax_button",
- *   admin_label = @Translation("Ajax Button"),
- *   category = @Translation("Ajax Button"),
+ *   id = "lauds_button",
+ *   admin_label = @Translation("Laud's Button"),
+ *   category = @Translation("Forms"),
  * )
  */
 class ButtonBlock extends BlockBase {
