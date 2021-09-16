@@ -1,4 +1,4 @@
-## CONTENTS OF THIS FILE
+## Contents of this file
 ---------------------
 
  * What I've done
