@@ -35,6 +35,6 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
-
+// Please set your local site url here
 $settings['local_site_url'] = 'http://localhost:8888/tableau_takehome';
 

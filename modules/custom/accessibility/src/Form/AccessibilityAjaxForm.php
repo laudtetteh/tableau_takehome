@@ -40,7 +40,7 @@ class AccessibilityAjaxForm extends FormBase {
           'message' => $this->t('Getting results...'),
         ],
       ],
-      '#prefix' => '<div id="accessibility-form-button">',
+      '#prefix' => '<div id="accessibility-form-wrapper">',
       '#suffix' => '</div>',
     ];
 
@@ -56,11 +56,8 @@ class AccessibilityAjaxForm extends FormBase {
   * Prints the results per category
   */
   public function printResults(array &$form, FormStateInterface $form_state) {
-    $markup = '';
-
     $getResults = $this->getResults();
-
-    $resultsMessage = $getResults['data']['message'];
+    $resultsMessage = $getResults['timestamp'];
     $markup = "<h1>$resultsMessage</h1>";
 
     $output = "<div id='print-output'>$markup</div>";
@@ -69,7 +66,9 @@ class AccessibilityAjaxForm extends FormBase {
     return ['#markup' => $output];
   }
 
-
+  /**
+  * Gets the results per category
+  */
   public function getResults() {
     $site_url = Settings::get('local_site_url', 'http://localhost:8888/tableau_takehome');
     $internal_api_endpoint = 'api/accessibility';
@@ -93,5 +92,4 @@ class AccessibilityAjaxForm extends FormBase {
   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
   }
-
 }

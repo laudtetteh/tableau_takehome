@@ -5,24 +5,3 @@ accessibility.get:
   methods:  [GET]
   requirements:
     _access: 'TRUE'
-
-accessibility.post:
-  path: '/api/accessibility'
-  defaults: { _controller: '\Drupal\accessibility\Controller\AccessibilityController::post' }
-  methods:  [POST]
-  requirements:
-    _access: 'TRUE'
-
-# accessibility.put:
-#   path: '/api/accessibility'
-#   defaults: { _controller: '\Drupal\accessibility\Controller\AccessibilityController::put' }
-#   methods:  [PUT]
-#   requirements:
-#     _access: 'TRUE'
-
-# accessibility.delete:
-#   path: '/api/accessibility'
-#   defaults: { _controller: '\Drupal\accessibility\Controller\AccessibilityController::delete' }
-#   methods:  [DELETE]
-#   requirements:
-#     _access: 'TRUE'
