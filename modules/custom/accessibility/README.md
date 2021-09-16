@@ -10,7 +10,7 @@
 
 ### What I've done
 
-Had to learn a few new things, as my Drupal knowledge is still mostly rudimentary!
+Had to learn some cool new things, as my Drupal knowledge is still mostly rudimentary.
 
 Here's a summary of what I was able to do:
 
