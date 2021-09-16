@@ -2,6 +2,7 @@
 
 namespace Drupal\accessibility\Form;
 
+use Drupal\Core\Site\Settings;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
@@ -70,7 +71,10 @@ class AccessibilityAjaxForm extends FormBase {
 
 
   public function getResults() {
-    $request_url = 'http://localhost:8888/tableau_takehome/api/accessibility';
+    $site_url = Settings::get('local_site_url', 'http://localhost:8888/tableau_takehome');
+    $internal_api_endpoint = 'api/accessibility';
+    $request_url = $site_url . '/' . $internal_api_endpoint;
+
     $curl = curl_init($request_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER, [
