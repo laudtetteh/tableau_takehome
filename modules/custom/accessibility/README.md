@@ -28,7 +28,7 @@ Here's a summary of what I was able to do:
 There were a couple of things I didn't have time to properly troubleshoot:
 
  1. In the form method `\Drupal\accessibility\Form\AccessibilityAjaxForm::getViolationCounts`, I'm attempting to create an associative array of violations by category. Not sure why that piece of code keeps returning count '1' for all violations
- 2. The first time you install the module and add the block to the sidebar (or each time you clear drupal caches), the ajax button works as expected. Once you refresh the page, it reverts to 'submitting' to self, rather than the designated ajax handler.
+ 2. The first time you install the module and add the block to the sidebar (or each time you clear drupal caches), the ajax button works as expected. Once you refresh the page, it reverts to 'submitting' to self, rather than the designated ajax handler. Weird stuff.
 
 
 
