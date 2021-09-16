@@ -9,14 +9,14 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormInterface;
 
 /**
- * Provides a 'Button' Block.
- *
- * @Block(
- *   id = "lauds_button",
- *   admin_label = @Translation("Laud's Button"),
- *   category = @Translation("Forms"),
- * )
- */
+* Provides a 'Button' Block.
+*
+* @Block(
+*   id = "lauds_button",
+*   admin_label = @Translation("Laud's Button"),
+*   category = @Translation("Forms"),
+* )
+*/
 class ButtonBlock extends BlockBase {
 
     /**

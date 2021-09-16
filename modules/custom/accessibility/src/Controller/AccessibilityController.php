@@ -27,6 +27,7 @@ class AccessibilityController extends ControllerBase {
         $curl = curl_init($request_url);
         // Set request parameters
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // Set HTTP headers
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
             'x-tableau-auth: AOaxT3DBGfyXtR68PgFzcZma4bfzLeuLFaLuX9jGHC',
             'Content-Type: application/json',

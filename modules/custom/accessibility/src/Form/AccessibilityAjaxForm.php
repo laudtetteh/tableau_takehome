@@ -55,10 +55,12 @@ class AccessibilityAjaxForm extends FormBase {
     * Prints the results per category
     */
     public function printResults(array &$form, FormStateInterface $form_state) {
+        // Create an instance of AjaxResponse
         $ajax_response = new AjaxResponse();
+        // Get violation counts
         $violations = $this->getViolationCounts();
         $html = '';
-        // If violations, exist, then build an html list
+        // If violations exist, then build an html list
         if( !empty($violations) ) {
             $html .= '<ul>';
 
@@ -122,6 +124,7 @@ class AccessibilityAjaxForm extends FormBase {
         // Hit internal api endpoint
         $curl = curl_init($request_url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // Set HTTP headers
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json'
         ]);
