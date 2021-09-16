@@ -40,8 +40,6 @@ class AccessibilityAjaxForm extends FormBase {
           'message' => $this->t('Getting results...'),
         ],
       ],
-      '#prefix' => '<div id="accessibility-form-wrapper">',
-      '#suffix' => '</div>',
     ];
 
     $form['results'] = [

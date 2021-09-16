@@ -19,24 +19,11 @@ class AccessibilityController extends ControllerBase {
   */
   public function get( Request $request ) {
 
-    // $cloudfunctions_url = 'https://us-central1-api-project-30183362591.cloudfunctions.net/axe-puppeteer-test';
-    // $node_url = 'https://dev-tech-homework.pantheonsite.io/node/1';
-
-    // $request_url = $cloudfunctions_url . '/?url=' . $node_url;
-
-
-
-    $request_url = 'https://us-central1-api-project-30183362591.cloudfunctions.net/axe-puppeteer-test?url=https://dev-tech-homework.pantheonsite.io/node/1';
-
+    $cloudfunctions_url = 'https://us-central1-api-project-30183362591.cloudfunctions.net/axe-puppeteer-test';
+    $node_url = 'https://dev-tech-homework.pantheonsite.io/node/1';
+    $request_url = $cloudfunctions_url . '/?url=' . $node_url;
 
     $curl = curl_init($request_url);
-    // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    // curl_setopt($curl, CURLOPT_HTTPHEADER, [
-    //   'Content-Type: application/json'
-    // ]);
-    // $response = curl_exec($curl);
-    // curl_close($curl);
-
 
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
@@ -45,16 +32,13 @@ class AccessibilityController extends ControllerBase {
       'Content-Type: application/json',
     ]);
 
-    // curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    // curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     $response = curl_exec($curl);
+
     curl_close($curl);
 
-    // $response['data'] = ['message' => 'Some test data to return'];
-    // $response['method'] = 'GET';
+    $response = json_decode($response, true);
 
     return new JsonResponse( $response );
-    // return $response;
   }
 
 }
